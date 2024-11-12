@@ -53,6 +53,10 @@ class LaneServoingNode(DTROS):
         self.VLS_ACTION = None
         self.VLS_STOPPED = True
 
+        # Defining params for matrix
+        rospy.set_param(f"/steer_matrix_left_weight", -0.0011)
+        rospy.set_param(f"/steer_matrix_right_weight", 0.0005)
+
         # Defining subscribers:
         rospy.Subscriber(
             f"/{self.veh}/rectifier_node/image/compressed",
